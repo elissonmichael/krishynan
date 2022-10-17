@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row center">
+        <h5>LCI ou CDB?</h5>
+      </div>
+      <form action="#" class="center">
+        <p>Selecione a Alíquota.</p>
+        <p>
+          <label>
+            <input name="aliquot" type="radio" checked />
+            <span>22,5% (Até 180 dias)</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input name="aliquot" type="radio" />
+            <span>20% (De 181 a 360 dias)</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input name="aliquot" type="radio" />
+            <span>17,5% (De 361 a 720 dias)</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input name="aliquot" type="radio" />
+            <span>15% (Acima de 720 dias)</span>
+          </label>
+        </p>
+        <p>Arraste para calcular.</p>
+        <p class="range-field">
+          <label for='lci'>Percentual LCI</label>
+          <input type="range" id="lci" min="60" max="100" oninput="calculateLCI(this)" onchange="calculateLCI(this)"/>
+          <output for="lci" id='lciResult'>80%</output>
+        </p>
+        <p class="range-field">
+          <label for='cdb'>Percentual CDB</label>
+          <input type="range" id="cdb" min="70" max="130" oninput="calculateCDB(this)" onchange="calculateCDB(this)"/>
+          <output for="cdb" id='cdbResult'>100%</output>
+        </p>
+      </form>
+      <blockquote>
+        Desenvolvido por:
+        <a href="https://www.linkedin.com/in/elissonmichael/">Élisson</a> &
+        <a href="https://www.linkedin.com/in/krishynan/">Krishynan</a>
+      </blockquote>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
