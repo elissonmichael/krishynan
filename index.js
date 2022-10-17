@@ -10,22 +10,42 @@ function cdbCalculation(lciValue) {
   return lciValue * (1.0 - aliquot());
 }
 
+function hideTooltipFrom(id) {
+  let elems = document.getElementById(id).getElementsByClassName('thumb active');
+  if (elems.length === 0) { return };
+
+  elems[0].hidden = true;
+}
+
+function showTooltipFrom(id) {
+  let elems = document.getElementById(id).getElementsByClassName('thumb active');
+  if (elems.length === 0) { return };
+
+  elems[0].hidden = false;
+}
+
 function resetAll() {
-  let default_cdb = 80.0;
-  cdbResult.value = `${default_cdb}%`;
-  cdb.value = default_cdb;
-  lci.value = cdbCalculation(default_cdb);
+  cdb.value = 80.0;
+  lci.value = cdbCalculation(cdb.value);
+  cdbResult.value = `${cdb.value}%`;
   lciResult.value = `${lci.value}%`;
+  hideTooltipFrom('cdb-range-field');
+  hideTooltipFrom('lci-range-field');
 }
 
 function updateCDB(element) {
   lciResult.value = `${element.value}%`;
   cdb.value = lciCalculation(element.value);
   cdbResult.value = `${cdb.value}%`;
+  hideTooltipFrom('cdb-range-field')
+  showTooltipFrom('lci-range-field')
 }
 
 function updateLCI(element) {
   cdbResult.value = `${element.value}%`;
   lci.value = cdbCalculation(element.value);
   lciResult.value = `${lci.value}%`;
+  hideTooltipFrom('lci-range-field');
+  showTooltipFrom('cdb-range-field');
+
 }
