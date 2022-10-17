@@ -15,45 +15,47 @@
         <p>Selecione a Alíquota.</p>
         <p>
           <label>
-            <input name="aliquot" type="radio" checked />
+            <input name="aliquot" type="radio" onchange="updateAll()" value='0.225' checked />
             <span>22,5% (Até 180 dias)</span>
           </label>
         </p>
         <p>
           <label>
-            <input name="aliquot" type="radio" />
+            <input name="aliquot" type="radio" onchange="updateAll()" value='0.2'/>
             <span>20% (De 181 a 360 dias)</span>
           </label>
         </p>
         <p>
           <label>
-            <input name="aliquot" type="radio" />
+            <input name="aliquot" type="radio" onchange="updateAll()" value='0.175'/>
             <span>17,5% (De 361 a 720 dias)</span>
           </label>
         </p>
         <p>
           <label>
-            <input name="aliquot" type="radio" />
+            <input name="aliquot" type="radio" onchange="updateAll()" value='0.15'/>
             <span>15% (Acima de 720 dias)</span>
           </label>
         </p>
         <p>Arraste para calcular.</p>
         <p class="range-field">
           <label for='lci'>Percentual LCI</label>
-          <input type="range" id="lci" min="60" max="100" oninput="calculateLCI(this)" onchange="calculateLCI(this)"/>
-          <output for="lci" id='lciResult'>80%</output>
+          <input type="range" id="lci" value='62.00' min="40" max="160" oninput="updateCDB(this)" onchange="updateCDB(this)"/>
+          <output for="lci" id='lciResult'>62.00%</output>
         </p>
+        <br/>
         <p class="range-field">
           <label for='cdb'>Percentual CDB</label>
-          <input type="range" id="cdb" min="70" max="130" oninput="calculateCDB(this)" onchange="calculateCDB(this)"/>
-          <output for="cdb" id='cdbResult'>100%</output>
+          <input type="range" id="cdb" value='80.00' min="40" max="160" oninput="updateLCI(this)" onchange="updateLCI(this)"/>
+          <output for="cdb" id='cdbResult'>80.00%</output>
         </p>
       </form>
       <blockquote>
         Desenvolvido por:
         <a href="https://www.linkedin.com/in/elissonmichael/">Élisson</a> &
         <a href="https://www.linkedin.com/in/krishynan/">Krishynan</a>
-      </blockquote>
+        <i class="material-icons tiny">info_outline</i> v1.03
+    </blockquote>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" src="index.js"></script>
