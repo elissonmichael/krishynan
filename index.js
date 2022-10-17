@@ -1,21 +1,5 @@
-function lciValue() {
-  return document.querySelector('input[id="lci"]').value;
-}
-
-function cdbValue() {
-  return document.querySelector('input[id="cdb"]').value;
-}
-
 function aliquot() {
   return document.querySelector('input[name="aliquot"]:checked').value;
-}
-
-function calculateLCI() {
-  return cdbValue() / (1.0 - aliquot());
-}
-
-function calculateCDB() {
-  return lciValue() * (1.0 - aliquot());
 }
 
 function resetAll() {
