@@ -6,6 +6,10 @@ function queryLciValue() {
   return document.getElementById('lci').value;
 }
 
+function queryCdbValue() {
+  return document.getElementById('cdb').value;
+}
+
 function lciCalculation(cdbValue) {
   return cdbValue / (1.0 - aliquot());
 }
@@ -26,9 +30,18 @@ function showTooltipFrom(id) {
   if (toolTips(id).length > 0) { toolTips(id)[0].hidden = false };
 }
 
+function fixarCDB() {
+  return document.getElementById('fixar-cdb').checked;
+}
+
 function recalculateCDB() {
-  cdb.value = lciCalculation(queryLciValue());
-  cdbResult.value = `${cdb.value}%`;
+  if (fixarCDB()) {
+    lci.value = cdbCalculation(queryCdbValue());
+    lciResult.value = `${lci.value}%`;
+  } else {
+    cdb.value = lciCalculation(queryLciValue());
+    cdbResult.value = `${cdb.value}%`;
+  }
   hideTooltipFrom('cdb-range-field');
   hideTooltipFrom('lci-range-field');
 }

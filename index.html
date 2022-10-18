@@ -13,7 +13,7 @@
         <h5>LCI ou CDB?</h5>
       </div>
       <form action="#" class="center">
-        <p>Selecione a Alíquota.</p>
+        <p>Selecione a Alíquota</p>
         <p>
           <label>
             <input name="aliquot" type="radio" onchange="recalculateCDB()" value='0.225' checked />
@@ -38,7 +38,16 @@
             <span>15% (Acima de 720 dias)</span>
           </label>
         </p>
-        <p>Arraste para calcular.</p>
+        <p>Fixar ao Alterar Alíquota</p>
+        <div class="switch">
+          <label>
+            LCI
+            <input type="checkbox" id="fixar-cdb">
+            <span class="lever"></span>
+            CDB
+          </label>
+        </div>
+        <p>Arraste Para Calcular</p>
         <p class="range-field" id="lci-range-field">
           <label for='lci'>Percentual LCI</label>
           <input type="range" id="lci" value='62' min="60" max="110" oninput="updateCDB(this)" onchange="updateCDB(this)"/>
@@ -55,7 +64,7 @@
         Desenvolvido por:
         <a href="https://www.linkedin.com/in/elissonmichael/">Élisson</a> &
         <a href="https://www.linkedin.com/in/krishynan/">Krishynan</a>
-        <i class="material-icons tiny">info_outline</i> v1.09
+        <i class="material-icons tiny">info_outline</i> v1.10
     </blockquote>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
