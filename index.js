@@ -2,6 +2,10 @@ function aliquot() {
   return document.querySelector('input[name="aliquot"]:checked').value;
 }
 
+function queryLciValue() {
+  return document.getElementById('lci').value;
+}
+
 function lciCalculation(cdbValue) {
   return cdbValue / (1.0 - aliquot());
 }
@@ -10,25 +14,21 @@ function cdbCalculation(lciValue) {
   return lciValue * (1.0 - aliquot());
 }
 
-function hideTooltipFrom(id) {
-  let elems = document.getElementById(id).getElementsByClassName('thumb active');
-  if (elems.length === 0) { return };
+function toolTips(id) {
+  return document.getElementById(id).getElementsByClassName('thumb active');
+}
 
-  elems[0].hidden = true;
+function hideTooltipFrom(id) {
+  if (toolTips(id).length > 0) { toolTips(id)[0].hidden = true };
 }
 
 function showTooltipFrom(id) {
-  let elems = document.getElementById(id).getElementsByClassName('thumb active');
-  if (elems.length === 0) { return };
-
-  elems[0].hidden = false;
+  if (toolTips(id).length > 0) { toolTips(id)[0].hidden = false };
 }
 
-function resetAll() {
-  cdb.value = 80.0;
-  lci.value = cdbCalculation(cdb.value);
+function recalculateCDB() {
+  cdb.value = lciCalculation(queryLciValue());
   cdbResult.value = `${cdb.value}%`;
-  lciResult.value = `${lci.value}%`;
   hideTooltipFrom('cdb-range-field');
   hideTooltipFrom('lci-range-field');
 }
